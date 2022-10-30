@@ -1,1 +1,1 @@
-export { default } from './Mainbox';
+export { default } from '../App/Wrapper';

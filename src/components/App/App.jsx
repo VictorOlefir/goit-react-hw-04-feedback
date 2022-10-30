@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import Mainbox from 'components/Mainbox';
+import Wrapper from 'components/App/Wrapper';
 import Section from 'components/Section';
 import FeedbackOptions from 'components/FeedbackOptions';
 import Statistics from 'components/Statistics';
@@ -33,21 +33,12 @@ export const App = () => {
 
   return (
     <>
-      <Mainbox
-        display="flex"
-        flexDirection="column"
-        width="1280px"
-        height="700px"
-        pt={3}
-        bg="bodyColor"
-        boxShadow="outline"
-        as="main"
-      >
+      <Wrapper>
         <Section title={'Please leave feedback'}>
           <FeedbackOptions options={options} onLeaveFeedback={handleClick} />
         </Section>
         <Section title={'Statistics'}>
-          {total > 0 ? (
+          {!!total ? (
             <Statistics
               good={good}
               neutral={neutral}
@@ -59,7 +50,7 @@ export const App = () => {
             <Notification message="There is no feedback" />
           )}
         </Section>
-      </Mainbox>
+      </Wrapper>
     </>
   );
 };
